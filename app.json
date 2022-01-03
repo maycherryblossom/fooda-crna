@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "fooda-crna",
+    "slug": "fooda-crna",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "fooda-crna"
+}
