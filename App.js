@@ -1,21 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import AppLoading from 'expo-app-loading';
+import React, { useState } from 'react';
+import * as Font from 'expo-font';
+import { Text } from 'react-native';
+import { Ionicons } from "@expo/vector-icons";
+import { Asset } from "expo-asset";
+
+const loadFonts = (fonts) => fonts.map(font => Font.loadAsync(font))
+const loadAssets = (assets) => assets.map(asset => {
+  if(typeof asset === "string"){
+    return Image.prefetch(asset);
+  } else {
+    return Asset.loadAsync(asset)
+  }
+})
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  const [ready, setReady] = useState(false);
+  const onFinish = () => setReady(true);
+  const startLoading = async () => {
+    const fonts = loadFonts([Ionicons.font, require('./assets/fonts/NotoSansKR-Regular.otf')]); //폰트는 이제 promises들의 array다
+    const assets = loadAssets([require("./assets/logo.png")])
+    //await Font.loadAsync(Ionicons.font);
+    await Asset.loadAsync(require('./assets/logo.png'));
+    //await Image.prefetch("") //string이면 prefetch를 씀
+//    await new Promise(resolve => setTimeout(resolve, 10000));
+  };
+  if (!ready) {
+    return <AppLoading
+      startAsync={startLoading}
+      onFinish={onFinish}
+      onError={console.error} />;
+  }
+  return <Text>We are done loading!</Text>;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
