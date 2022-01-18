@@ -4,7 +4,7 @@ import * as Font from 'expo-font';
 import { Text } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 import { Asset, useAssets } from "expo-asset";
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import Tabs from './navigation/Tabs';
 
 
