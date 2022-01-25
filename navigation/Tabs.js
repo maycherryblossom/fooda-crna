@@ -4,7 +4,7 @@ import Calendar from '../screens/Calendar';
 import MucketList from '../screens/MucketList';
 import Recommendation from '../screens/Recommendation';
 import Search from '../screens/Search';
-import { Text, View } from 'react-native';
+import { Text, View, SafeAreaView} from 'react-native';
 import { useColorScheme } from 'react-native';
 import { YELLOW_BASIC } from '../colors';
 import { Ionicons } from "@expo/vector-icons";
@@ -53,7 +53,23 @@ const Tabs = () => {
             ),
         }}
         />
-        <Tab.Screen name="먹킷리스트" component={MucketList} />
+        <Tab.Screen 
+        name="먹킷리스트" 
+        component={MucketList}
+        options={{ 
+          tabBarIcon: ({focused, color, size}) => {
+            return <Ionicons 
+              name= {focused ? "book" : 'book-outline'}
+              color = {color} 
+              size = {size} />
+          },
+            headerRight: () => (
+            <SafeAreaView>
+                <Text>profile</Text>
+            </SafeAreaView>
+            ),
+        }}
+        />
         <Tab.Screen name="음식 추천" component={Recommendation} />
         <Tab.Screen name="Search" component={Search} />
     </Tab.Navigator>

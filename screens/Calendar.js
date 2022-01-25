@@ -1,10 +1,21 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { TouchableOpacity, Text, SafeAreaView, StyleSheet, View } from "react-native";
+import CalendarView from "../components/CalendarView";
+import FloatingWriteButton from "../components/FloatingWriteButton";
 
-const Calendar = () => (
-    <View style={{flex:1, justifyContent: "center", alignItems:"center"}}>
-        <Text>Calendar</Text>
+function Calendar() {
+  return (
+    <View style={styles.block}>
+      <CalendarView />
+      <FloatingWriteButton />
     </View>
-);
+  );
+}
+
+const styles = StyleSheet.create({
+  block: {
+    flex: 1,
+  }
+})
 
 export default Calendar;
