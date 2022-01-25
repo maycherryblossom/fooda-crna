@@ -8,6 +8,7 @@ import { Text, View, SafeAreaView} from 'react-native';
 import { useColorScheme } from 'react-native';
 import { YELLOW_BASIC } from '../colors';
 import { Ionicons } from "@expo/vector-icons";
+import Home from '../screens/Home';
 
 const Tab = createBottomTabNavigator();
 
@@ -38,7 +39,7 @@ const Tabs = () => {
     }}>
         <Tab.Screen 
         name="다이어리" 
-        component={Calendar}
+        component={Home}
         options={{ 
           tabBarIcon: ({focused, color, size}) => {
             return <Ionicons 

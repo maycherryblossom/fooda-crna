@@ -1,10 +1,12 @@
+import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { View, Text } from "react-native";
+import CalendarTab from "../navigation/CalendarTabs";
 
-const Home = () => (
-    <View style={{flex:1, justifyContent: "center", alignItems:"center"}}>
-        <Text>Home</Text>
-    </View>
-)
+function Home () {
+  return(
+      <CalendarTab />
+  )}
 
 export default Home;
+

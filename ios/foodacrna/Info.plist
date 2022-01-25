@@ -49,10 +49,6 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIAppFonts</key>
-	<array>
-	  <string><MaterialIcons class="ttf"></MaterialIcons></string>
-	</array>
   <key>UIStatusBarStyle</key>
   <string>UIStatusBarStyleDefault</string>
 </dict>
