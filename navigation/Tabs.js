@@ -7,8 +7,9 @@ import Search from '../screens/Search';
 import { Text, View, SafeAreaView} from 'react-native';
 import { useColorScheme } from 'react-native';
 import { YELLOW_BASIC } from '../colors';
-import { Ionicons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 import Home from '../screens/Home';
+import WriteDiary from '../screens/WriteDiary';
 
 const Tab = createBottomTabNavigator();
 
@@ -42,8 +43,8 @@ const Tabs = () => {
         component={Home}
         options={{ 
           tabBarIcon: ({focused, color, size}) => {
-            return <Ionicons 
-              name= {focused ? "book" : 'book-outline'}
+            return <AntDesign
+              name= {focused ? "home" : 'home'}
               color = {color} 
               size = {size} />
           },
@@ -59,10 +60,11 @@ const Tabs = () => {
         component={MucketList}
         options={{ 
           tabBarIcon: ({focused, color, size}) => {
-            return <Ionicons 
-              name= {focused ? "book" : 'book-outline'}
+            return <AntDesign 
+              name= {focused ? "bars" : 'bars'}
               color = {color} 
-              size = {size} />
+              size = {size} 
+            />
           },
             headerRight: () => (
             <SafeAreaView>
@@ -71,8 +73,60 @@ const Tabs = () => {
             ),
         }}
         />
-        <Tab.Screen name="음식 추천" component={Recommendation} />
-        <Tab.Screen name="Search" component={Search} />
+        <Tab.Screen 
+          name="다이어리 작성" 
+          component={WriteDiary}
+          options={{
+            tabBarIcon: ({focused, color, size}) => {
+              return <AntDesign 
+                name= {focused ? "pluscircleo" : 'pluscircleo'}
+                color = {color} 
+                size = {size} 
+              />
+            },
+              headerRight: () => (
+              <SafeAreaView>
+                  <Text>profile</Text>
+              </SafeAreaView>
+              ),           
+          }}
+          />
+        <Tab.Screen 
+          name="음식 추천" 
+          component={Recommendation} 
+          options={{
+            tabBarIcon: ({focused, color, size}) => {
+              return <AntDesign 
+                name= {focused ? "like2" : 'like2'}
+                color = {color} 
+                size = {size} 
+              />
+            },
+              headerRight: () => (
+              <SafeAreaView>
+                  <Text>profile</Text>
+              </SafeAreaView>
+              ),           
+            }}                      
+          />
+        <Tab.Screen 
+          name="Search" 
+          component={Search} 
+          options={{
+            tabBarIcon: ({focused, color, size}) => {
+              return <AntDesign 
+                name= {focused ? "search1" : 'search1'}
+                color = {color} 
+                size = {size} 
+              />
+            },
+              headerRight: () => (
+              <SafeAreaView>
+                  <Text>profile</Text>
+              </SafeAreaView>
+              ),               
+            }}
+          />
     </Tab.Navigator>
 )};
 
