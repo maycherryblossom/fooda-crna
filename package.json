@@ -4,11 +4,12 @@
   "main": "index.js",
   "scripts": {
     "start": "react-native start",
-    "android": "expo run:android",
+    "android": "react-native run-android",
     "ios": "react-native run-ios",
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-firebase/app": "^14.3.0",
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/material-top-tabs": "^6.0.6",
     "@react-navigation/native": "^6.0.6",

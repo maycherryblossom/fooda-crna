@@ -10,7 +10,7 @@ const Nav = createNativeStackNavigator();
 const Root = () => (
   <Nav.Navigator 
     screenOptions={{ headerShown: false }}
-    // initialRouteName="Stack"
+    initialRouteName="Stack"
     >
   {/* <Nav.Screen name="SignIn" component={SignIn} options={{headerShown: false}} /> */}
   <Nav.Screen name="Tabs" component={Tabs} />

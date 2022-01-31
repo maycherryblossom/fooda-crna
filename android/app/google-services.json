@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "886262623767",
+    "project_id": "fooda-crna",
+    "storage_bucket": "fooda-crna.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886262623767:android:314a2d70a9a8209badf652",
+        "android_client_info": {
+          "package_name": "com.foodacrna"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "886262623767-ld3npdf21sa37oct0uag58q6qr585pop.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.foodacrna",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "886262623767-rhretgm9r4ckkp6o76bntdrcat2j6pgk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVmOsyadYM3un3zSnuF4pgEb0P65NpBQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "886262623767-rhretgm9r4ckkp6o76bntdrcat2j6pgk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "886262623767-rjk7lnbggsnqn70mtf28ataqq7gpv11d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.name.foodacrna"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
