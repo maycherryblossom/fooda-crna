@@ -19,7 +19,7 @@ function CalendarTab() {
     >
       <Tab.Screen name="캘린더" component={Calendar} />
       <Tab.Screen name="아카이브" component={Archive} />
-      <Tab.Screen name="친구" component={FriendList} />
+      <Tab.Screen name="친구" component={FriendList} />    
     </Tab.Navigator>
   )
 }

@@ -4,14 +4,21 @@ import Calendar from '../screens/Calendar';
 import MucketList from '../screens/MucketList';
 import Recommendation from '../screens/Recommendation';
 import Search from '../screens/Search';
-import { Text, View, SafeAreaView} from 'react-native';
+import { Text, View, SafeAreaView, Modal} from 'react-native';
 import { useColorScheme } from 'react-native';
 import { YELLOW_BASIC } from '../colors';
 import { AntDesign } from "@expo/vector-icons";
 import Home from '../screens/Home';
 import WriteDiary from '../screens/WriteDiary';
+import WriteDiaryModal from '../components/WriteDiaryModal';
+import SearchStack from './SearchStack';
+import RecommendationStack from './RecommendationStack';
+import MucketListStack from './MucketListStack';
+import CalendarStack from './CalendarStack';
 
 const Tab = createBottomTabNavigator();
+
+const Write  = () => null
 
 const Tabs = () => {
   const isDark = useColorScheme() === "dark";
@@ -40,7 +47,7 @@ const Tabs = () => {
     }}>
         <Tab.Screen 
         name="다이어리" 
-        component={Home}
+        component={CalendarStack}
         options={{ 
           tabBarIcon: ({focused, color, size}) => {
             return <AntDesign
@@ -57,7 +64,7 @@ const Tabs = () => {
         />
         <Tab.Screen 
         name="먹킷리스트" 
-        component={MucketList}
+        component={MucketListStack}
         options={{ 
           tabBarIcon: ({focused, color, size}) => {
             return <AntDesign 
@@ -75,7 +82,13 @@ const Tabs = () => {
         />
         <Tab.Screen 
           name="다이어리 작성" 
-          component={WriteDiary}
+          component={Write}
+          listeners={({ navigation }) => ({
+            tabPress: (e) => {
+              e.preventDefault();
+              navigation.navigate(`WriteDiaryModal${navigation.getState().index}`)
+            }
+          })}
           options={{
             tabBarIcon: ({focused, color, size}) => {
               return <AntDesign 
@@ -93,7 +106,7 @@ const Tabs = () => {
           />
         <Tab.Screen 
           name="음식 추천" 
-          component={Recommendation} 
+          component={RecommendationStack} 
           options={{
             tabBarIcon: ({focused, color, size}) => {
               return <AntDesign 
@@ -110,8 +123,8 @@ const Tabs = () => {
             }}                      
           />
         <Tab.Screen 
-          name="Search" 
-          component={Search} 
+          name="SearchStack" 
+          component={SearchStack} 
           options={{
             tabBarIcon: ({focused, color, size}) => {
               return <AntDesign 

@@ -11,14 +11,17 @@ function SignIn({navigation}) {
       <Text style={styles.text}>푸다</Text>
       <View style={styles.form}>
         <BorderedInput 
-          hasMarginBottom 
+          hasMarginBottom
           placeholder="이메일"
           />
         <BorderedInput
-         placeholder="비밀번호"
+          hasMarginBottom={false}
+          placeholder="비밀번호"
          />
         <View style={styles.buttons}>
-          <CustomButton title="로그인" hasMarginBottom />
+          <CustomButton 
+            title="로그인" 
+            hasMarginBottom />
           <CustomButton 
             title="회원가입" 
             theme="secondary" 

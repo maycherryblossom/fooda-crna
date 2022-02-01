@@ -2,7 +2,7 @@ import react from "react";
 import { StyleSheet, View, Pressable, Text, Platform } from "react-native";
 import { YELLOW_BASIC } from "../colors";
 
-function CustomButton({onPress, title, hasMarginBottom, theme}) {
+function CustomButton({ onPress, title, hasMarginBottom, theme }:{ title: string }) {
   const isPrimary = theme ==='primary';
 
   return(

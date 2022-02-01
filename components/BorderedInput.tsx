@@ -1,11 +1,16 @@
 import React from "react";
 import { StyleSheet, TextInput } from "react-native";
 
+interface Props {
+  hasMarginBottom?: boolean;
+  placeholder: string;
+}
 
-function BorderedInput({hasMarginBottom, ...rest}) {
+function BorderedInput({hasMarginBottom, placeholder}:Props) {
   return <TextInput 
     style={[styles.input, hasMarginBottom && styles.margin]}
-    {...rest}
+    placeholder={placeholder}
+    // {...rest}
     />;
 }
 
