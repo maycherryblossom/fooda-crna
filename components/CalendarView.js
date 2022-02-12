@@ -1,15 +1,27 @@
 import React from 'react';
 import { Calendar } from 'react-native-calendars';
-import { StyleSheet } from 'react-native-web';
+import { View, Text, StyleSheet } from 'react-native';
 
 function CalendarView() {
-  return <Calendar style={styles.calendar} />;
+  return <Calendar 
+    style={styles.calendar} 
+    dayComponent={({date, state}) => {
+      return (
+        <View>
+          <Text style={{textAlign: 'center', color: state === 'disabled' ? 'gray' : 'black'}}>
+            {date.day}
+          </Text>
+          <Text>image</Text>
+        </View>
+      );
+    }}  
+  />;
 }
 
 const styles = StyleSheet.create({
   calendar: {
-    borderWidth: 1,
-    height: 2000
+    borderWidth: 0,
+    height: 1000
   }
 })
 

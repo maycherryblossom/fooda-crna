@@ -5,6 +5,16 @@ import LignInput from '../components/LignInput';
 import ForSignUpButton from '../components/ForSignUpButton';
 
 function SignUp({navigation}) {
+  const [form, setForm] = useState({
+    email: ''
+  });
+  const createChangeTextHandler = (name) => (value) => {
+    setForm({...form, [name]: value});
+  };
+  const onSubmit = () => {
+    Keyboard.dismiss();
+    console.log(form);
+  }
   return (
     <SafeAreaView style={styles.fullscreen}>
       <ScrollView
@@ -16,6 +26,11 @@ function SignUp({navigation}) {
         <LignInput
           hasMarginBottom
           placeholder="이메일을 입력하세요"
+          value={form.email}
+          onChangeText={createChangeTextHandler('email')}
+          autoCapitalize='none'
+          autoCompleteType="email"
+          keyboardType="email-address"
           />
       </View>
       </ScrollView>

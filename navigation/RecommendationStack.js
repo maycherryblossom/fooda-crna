@@ -19,7 +19,7 @@ function RecommendationStack(){
         component={WriteDiaryModal}
         options={{
           headerShown: false,
-          presentation: "transparentModal"
+          presentation: "transparentModal",
         }} 
       />
     </Nativestack.Navigator>

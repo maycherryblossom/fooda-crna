@@ -5,17 +5,23 @@ import LignInput from '../components/LignInput';
 import ForSignUpButton from '../components/ForSignUpButton';
 
 function SignUpPassword() {
+  const [form, setForm] = useState({
+    password: '',
+    comfirmPassword: '',
+  });
   return (
     <SafeAreaView style={styles.fullscreen}>
       <ScrollView
         contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
         style={{ alignSelf: 'stretch', marginTop:100 }}
       >
-      <Text style={styles.text}>이메일</Text>
+      <Text style={styles.text}>비밀번호</Text>
       <View style={styles.form}>
         <LignInput
           hasMarginBottom
           placeholder="비밀번호를 입력하세요"
+          value={form.password}
+          secureTextEntry
           />
       </View>
       </ScrollView>

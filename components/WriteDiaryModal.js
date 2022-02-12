@@ -10,7 +10,15 @@ const WriteDiaryModal = ({ navigation }) => {
           ]}
           onPress={navigation.goBack}
         />
-        <View style={{width: '100%', height: '30%', position: 'absolute', bottom: 0, backgroundColor: 'white'}}>
+        <View 
+          style={{
+            width: '100%', 
+            height: '89%', 
+            position: 'absolute', 
+            bottom: 0, 
+            backgroundColor: 'white',
+            borderRadius: 30
+            }}>
           <Text style={{textAlign: 'center'}}>Create Posts !! This is Modal</Text>
         </View>
       </View>
