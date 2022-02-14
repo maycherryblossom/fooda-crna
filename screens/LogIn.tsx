@@ -1,11 +1,32 @@
-import React from 'react';
-import { StyleSheet, Text, View} from 'react-native'
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, Keyboard, Alert } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import BorderedInput from '../components/BorderedInput';
 import CustomButton from '../components/CustomButton';
+import { signIn } from '../lib/auth';
 import SignUp from './SignUp';
 
 function SignIn({navigation}) {
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+  });
+  const [loadinng, setLoading] = useState();
+  const onSubmit = async () => {
+    Keyboard.dismiss();
+    const {email, password} = form;
+    const info = {email, password};
+    setLoading(true);
+    try {
+      const {user} = await signIn(info);
+      console.log(user);
+    } catch (e) {
+      Alert.alert('로그인 실패');
+      console.log(e);
+    } finally {
+      setLoading(false)
+    }
+  };
   return (
     <SafeAreaView style={styles.fullscreen}>
       <Text style={styles.text}>푸다</Text>
@@ -21,7 +42,12 @@ function SignIn({navigation}) {
         <View style={styles.buttons}>
           <CustomButton 
             title="로그인" 
-            hasMarginBottom />
+            hasMarginBottom
+            onPress={() => {
+              onSubmit()
+              navigation.navigate('Tabs')
+            }}
+          />
           <CustomButton 
             title="회원가입" 
             theme="secondary" 

@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SignIn from "../screens/LogIn";
 import SignUp from "../screens/SignUp";
 import SignUpPassword from "../screens/SignUpPassword";
+import { SignUpDataContextProvider } from "../contexts/SignUpDataContext";
 
 const NativeStack = createNativeStackNavigator();
 

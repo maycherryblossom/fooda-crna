@@ -3,17 +3,26 @@ import { StyleSheet, Text, View, Keyboard, KeyboardAvoidingView, Platform, Scrol
 import { SafeAreaView } from 'react-native-safe-area-context';
 import LignInput from '../components/LignInput';
 import ForSignUpButton from '../components/ForSignUpButton';
+import { useSignUpDataContext } from '../contexts/SignUpDataContext';
 
 function SignUp({navigation}) {
   const [form, setForm] = useState({
-    email: ''
+    email: '',
+    password: ''
   });
+  const {setSignUpData} = useSignUpDataContext();
   const createChangeTextHandler = (name) => (value) => {
     setForm({...form, [name]: value});
   };
   const onSubmit = () => {
     Keyboard.dismiss();
-    console.log(form);
+    const SignUpData = {
+      email: form.email,
+      password: '',
+    };
+    console.log(SignUpData);
+    setSignUpData(SignUpData);
+    console.log(setSignUpData.email);
   }
   return (
     <SafeAreaView style={styles.fullscreen}>
@@ -31,6 +40,8 @@ function SignUp({navigation}) {
           autoCapitalize='none'
           autoCompleteType="email"
           keyboardType="email-address"
+          onSubmitEditing={onSubmit}
+          returnKeyType="done"
           />
       </View>
       </ScrollView>
@@ -43,9 +54,10 @@ function SignUp({navigation}) {
           <ForSignUpButton 
             style={styles.button}
             title="계속하기"
-            onPress={() => 
-              navigation.push('SignUpPassword')
-            }
+            onPress={() => {
+              onSubmit()
+              navigation.navigate('SignUpPassword', {emailPush: form.email})
+            }}
           />
         </View>
       </KeyboardAvoidingView>

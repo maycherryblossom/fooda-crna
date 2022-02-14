@@ -7,6 +7,7 @@ import { Asset, useAssets } from "expo-asset";
 import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import Tabs from './navigation/Tabs';
 import Root from "./navigation/Root";
+import { SignUpDataContextProvider } from './contexts/SignUpDataContext';
 
 // const loadFonts = (fonts) => fonts.map(font => Font.loadAsync(font))
 
@@ -35,8 +36,11 @@ export default function App() {
       // onError={console.error} 
       />;
   }
-  return (<NavigationContainer>
+  return (
+  <SignUpDataContextProvider>
+  <NavigationContainer>
     <Root />
   </NavigationContainer>
+  </SignUpDataContextProvider>
   );
 }
